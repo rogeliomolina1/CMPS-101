@@ -1,0 +1,274 @@
+#Rogelio Molina-Marquez
+#rgmolina
+#CMPS 101-Allen Van Gelder
+#
+#I have read and understood the Academic Misconduct Policy for
+#Undergraduates, the related sections 102.01-102.016 and 105.15 of the
+#UC Santa Cruz Student Policies and Regulations Handbook,
+#and the related sections of the class syllabus.
+#
+#Rogelio Molina-Marquez
+#
+#I wrote this assignment using only permitted sources that do not
+#require citation, according to the syllabus
+#
+#Files submitted:
+#dfs03.c
+#intVec.c
+#intVec.h
+#loadGraph.c
+#loadGraph.h
+#dfsTrace1.c
+#dfsTrace1.h
+#test1.txt
+#test2.txt
+#test3.txt
+#test4.txt
+#README
+#Makefile
+#
+#When run, the dfs03 program will go through the following sequence:
+#
+#Read input file setting up original array of adjacency lists
+#Print original array of adjacency lists
+#Make and adjacency matrix on original array of adjacency lists
+#print the adjecencey matrix if n<=12
+#
+#transpose the original array of adjacency lists giving
+#transposed array of adjacency lists
+#Print transposed array of adjacency lists
+#Make adjecency matrix on transposed array of adjacency lists
+#print the adjecencey matrix if n<=12
+#
+#dfsTrace1() is called and it produces a table
+#
+#
+#
+#
+#
+#
+#When the program is run with test1.txt and as directed the output is given below 
+#which matches the expected output.
+#
+#test1.txt contains:
+#
+#3
+#1 2 3.0
+#13 5
+#12 7 9.0
+#
+#Output:
+
+#Opened test1.txt for input.
+#n = 3
+#m = 1
+#1       [2]
+#2       []
+#3       []
+#       1  2  3
+#     ---------
+#  1 :  0  1  0
+#  2 :  0  0  0
+#  3 :  0  0  0
+#n = 3
+#m = 1
+#1       []
+#2       [1]
+#3       []
+#       1  2  3
+#     ---------
+#  1 :  0  0  0
+#  2 :  1  0  0
+#  3 :  0  0  0
+#n = 3
+#m = 1
+#   V   color   dTime   fTime   parent
+#   1       B       1       4      -1
+#   2       B       2       3       1
+#   3       B       5       6      -1
+
+
+# The output is correct because it ignores the inputs bigger than n, which in this case
+# was 3.
+
+#When the program is run with test2.txt and as directed the output is given below 
+#which matches the expected output.
+
+#test2.txt contains:
+
+#14
+#1 2 3.0
+#13 5
+#12 7 9.0
+
+#Output:
+
+#Opened test2.txt for input.
+#n = 14
+#m = 3
+#1       [2]
+#2       []
+#3       []
+#4       []
+#5       []
+#6       []
+#7       []
+#8       []
+#9       []
+#10      []
+#11      []
+#12      [7]
+#13      [5]
+#14      []
+#n = 14
+#m = 3
+#1       []
+#2       [1]
+#3       []
+#4       []
+#5       [13]
+#6       []
+#7       [12]
+#8       []
+#9       []
+#10      []
+#11      []
+#12      []
+#13      []
+#14      []
+#n = 14
+#m = 3
+#   V   color   dTime   fTime   parent
+#    1       B       1       4      -1
+#    2       B       2       3       1
+#    3       B       5       6      -1
+#    4       B       7       8      -1
+#    5       B       9      10      -1
+#    6       B      11      12      -1
+#    7       B      13      14      -1
+#    8       B      15      16      -1
+#    9       B      17      18      -1
+#   10       B      19      20      -1
+#   11       B      21      22      -1
+#   12       B      23      24      -1
+#   13       B      25      26      -1
+#   14       B      27      28      -1
+
+ 
+# The output is correct because it does not print the adjacency matrix since n is
+#greater than 12.
+
+
+#When the program is run with test3.txt and as directed the output is given below 
+#which matches the expected output.
+
+#test3.txt contains:
+
+#7
+
+#Output
+
+#n = 7
+#m = 0
+#1       []
+#2       []
+#3       []
+#4       []
+#5       []
+#6       []
+#7       []
+
+#       1  2  3  4  5  6  7
+#     ---------------------
+#  1 :  0  0  0  0  0  0  0
+#  2 :  0  0  0  0  0  0  0
+#  3 :  0  0  0  0  0  0  0
+#  4 :  0  0  0  0  0  0  0
+#  5 :  0  0  0  0  0  0  0
+#  6 :  0  0  0  0  0  0  0
+#  7 :  0  0  0  0  0  0  0
+
+#n = 7
+#m = 0
+#1       []
+#2       []
+#3       []
+#4       []
+#5       []
+#6       []
+#7       []
+
+#       1  2  3  4  5  6  7
+#     ---------------------
+#  1 :  0  0  0  0  0  0  0
+#  2 :  0  0  0  0  0  0  0
+#  3 :  0  0  0  0  0  0  0
+#  4 :  0  0  0  0  0  0  0
+#  5 :  0  0  0  0  0  0  0
+#  6 :  0  0  0  0  0  0  0
+#  7 :  0  0  0  0  0  0  0
+
+
+#    V   color   dTime   fTime   parent
+#    1       B       1       2      -1
+#    2       B       3       4      -1
+#    3       B       5       6      -1
+#    4       B       7       8      -1
+#    5       B       9      10      -1
+#    6       B      11      12      -1
+#    7       B      13      14      -1
+
+
+# The output is correct because the empty lists are diplayed properly and the table still
+#reflects no edges 
+
+
+
+#When the program is run with test4.txt and as directed the output is given below 
+#which matches the expected output.
+
+#test4.txt contains:
+
+#3
+#1 3 2.7
+#2 3 -3
+#2 1 0.0
+#1 2 0.0
+
+#Output
+
+#Opened test4.txt for input.
+#n = 3
+#m = 4
+#1       [2, 3]
+#2       [3]
+#3       [1]
+
+#       1  2  3
+#     ---------
+#  1 :  0  1  1
+#  2 :  0  0  1
+#  3 :  1  0  0
+
+#n = 3
+#m = 4
+#1       [3]
+#2       [1]
+#3       [2, 1]
+
+#       1  2  3
+#     ---------
+#  1 :  0  0  1
+#  2 :  1  0  0
+#  3 :  1  1  0
+
+
+#    V   color   dTime   fTime   parent
+#    1       B       1       6      -1
+#    2       B       2       5       1
+#    3       B       3       4       2
+
+
+
+# The output is correct because every point is traversed by dfsTrace1() in a graph where
+# every vertex has an edge.

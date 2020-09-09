@@ -1,0 +1,11 @@
+Makefile has comments to help you figure out your own Makefile.
+
+
+hex.c is an example of a C program using an ADT.  The ADT is iohelp.
+Notice that iohelp.h contains all the specifications for the ADT
+and is #included in hex.c.
+
+I do NOT recommend that you use iohelp but instead learn the standard
+C library functions fopen, fclose, fgets, sscandf, strdup and strtok_r.
+The setup here is to provide an example Makefile and an example of
+an ADT setup in C.

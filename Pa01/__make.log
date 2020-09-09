@@ -1,0 +1,3 @@
+gcc  -c -g -Wall -O0 -std=c99 -D_SVID_SOURCE digraph01.c
+gcc  -c  -g -Wall -O0 -std=c99 -D_SVID_SOURCE  intVec.c
+gcc  -o digraph01  -g -Wall -O0 -std=c99 -D_SVID_SOURCE digraph01.o  intVec.o

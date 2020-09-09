@@ -1,0 +1,237 @@
+#Rogelio Molina-Marquez
+#rgmolina
+#CMPS 101-Allen Van Gelder
+#
+#I have read and understood the Academic Misconduct Policy for
+#Undergraduates, the related sections 102.01-102.016 and 105.15 of the
+#UC Santa Cruz Student Policies and Regulations Handbook,
+#and the related sections of the class syllabus.
+#
+#Rogelio Molina-Marquez
+#
+#I wrote this assignment using only permitted sources that do not
+#require citation, according to the syllabus
+#
+#Files submitted:
+#priority04.c
+#priority04.h
+#minPQ.c
+#minPQ.h
+#loadWgtGraph.c
+#loadWgtGraph.h
+#adjWgtVec.c
+#adjWgtVec.h
+#test1.txt
+#test2.txt
+#test3.txt
+#test4.txt
+#README
+#Makefile
+#
+#When run, the priority04 program will go through the following sequence:
+#
+#The program reads and interprets the command-line parameters then opens the input file
+#and if the flag used was a P it finds the MST, if D it uses SSSP. If finding MST the input
+#graph will be treated as undirected. The program then continues with the appropriate
+#algorithm and prints a table of the results.
+#
+#Tests
+#
+#test1.txt
+#input:
+#6
+#1 2 4.0
+#1 6 2.0
+#2 1 1.0
+#2 3 3.0
+#2 4 4.0
+#3 1 6.0
+#3 2 3.0
+#3 4 7.0
+#4 1 6.0
+#4 5 2.0
+#5 4 5.0
+#6 4 2.0
+#6 5 3.0
+#
+#Output (MST):
+#
+#Task: Prim's Algorithm
+#Start: 1
+#       V          Status        Priority          Parent
+#       -          ------        --------          ------
+#       1:              t            0.00              -1
+#       2:              t            1.00               1
+#       3:              t            3.00               2
+#       4:              t            2.00               6
+#       5:              t            2.00               4
+#       6:              t            2.00               1
+#
+#	   
+#Output (SSSP):
+#
+#Task: Dijkstra's Algorithm
+#Start: 1
+#       V          Status            Cost          Parent
+#       -          ------            ----          ------
+#       1:              t            0.00              -1
+#       2:              t            4.00               1
+#       3:              t            7.00               2
+#       4:              t            4.00               6
+#       5:              t            5.00               6
+#       6:              t            2.00               1
+#
+#The output was as expected. Prim's Algorithm used the graph as undirected and gave
+#the minimum spanning tree. And Dijkstra's gave the shortest path treating the graph
+#as directed.
+#
+#test2.txt
+#input:
+#6
+#1 2 1
+#2 1 1
+#2 3 1
+#3 2 1
+#3 4 4
+#4 3 4
+#3 5 3
+#5 3 3
+#4 6 1
+#6 4 1
+#5 6 3
+#6 5 3
+#
+#Output (MST):
+#
+#Task: Prim's Algorithm
+#Start: 1
+#       V          Status        Priority          Parent
+#       -          ------        --------          ------
+#       1:              t            0.00              -1
+#       2:              t            1.00               1
+#       3:              t            1.00               2
+#       4:              t            1.00               6
+#       5:              t            3.00               3
+#       6:              t            3.00               5
+#
+#	   
+#Output (SSSP):
+#
+#Task: Dijkstra's Algorithm
+#Start: 1
+#       V          Status            Cost          Parent
+#       -          ------            ----          ------
+#       1:              t            0.00              -1
+#       2:              t            1.00               1
+#       3:              t            2.00               2
+#       4:              t            6.00               3
+#       5:              t            5.00               3
+#       6:              t            7.00               4
+#
+#The output was as expected. Prim's Algorithm used the graph as undirected and gave
+#the minimum spanning tree. And Dijkstra's gave the shortest path treating the graph
+#as directed. This example shows that the two results will not always be the same path.
+#
+#test3.txt
+#input:
+#9
+#1 2 2
+#2 1 2
+#2 3 4
+#3 2 4
+#3 4 2
+#4 3 2
+#4 5 1
+#5 4 1
+#5 6 6
+#6 5 6
+#6 1 9
+#1 6 9
+#6 9 1
+#9 6 1
+#9 5 3
+#5 9 3
+#8 4 1
+#4 8 1
+#8 3 5
+#3 8 5
+#7 8 5
+#8 7 5
+#8 9 4
+#9 8 4
+#7 9 2
+#9 7 2
+#7 2 6
+#2 7 6
+#7 1 5
+#1 7 5
+#
+#Output (MST):
+#
+#Task: Prim's Algorithm
+#Start: 1
+#       V          Status        Priority          Parent
+#       -          ------        --------          ------
+#       1:              t            0.00              -1
+#       2:              t            2.00               1
+#       3:              t            4.00               2
+#       4:              t            2.00               3
+#       5:              t            1.00               4
+#       6:              t            1.00               9
+#       7:              t            2.00               9
+#       8:              t            1.00               4
+#       9:              t            3.00               5
+#
+#Output (SSSP):
+#
+#Task: Dijkstra's Algorithm
+#Start: 1
+#       V          Status            Cost          Parent
+#       -          ------            ----          ------
+#       1:              t            0.00              -1
+#       2:              t            2.00               1
+#       3:              t            6.00               2
+#       4:              t            8.00               3
+#       5:              t            9.00               4
+#       6:              t            8.00               9
+#       7:              t            5.00               1
+#       8:              t            9.00               4
+#       9:              t            7.00               7
+#
+#The output was as expected. Prim's Algorithm used the graph as undirected and gave
+#the minimum spanning tree. And Dijkstra's gave the shortest path treating the graph
+#as directed. This example shows that the two results will not always be the same path.
+#Also this shows the algorithm works for larger inputs.
+#
+#
+#test4.txt
+#input:
+#4
+#1 2 1
+#3 4 2
+#
+#Output (MST):
+#
+#Task: Prim's Algorithm
+#Start: 1
+#       V          Status        Priority          Parent
+#       -          ------        --------          ------
+#       1:              t            0.00              -1
+#       2:              t            1.00               1
+#       3:              u            0.00               0
+#       4:              u            0.00               0
+#
+#Output (SSSP):
+#
+#Task: Dijkstra's Algorithm
+#Start: 1
+#       V          Status            Cost          Parent
+#       -          ------            ----          ------
+#       1:              t            0.00              -1
+#       2:              t            1.00               1
+#       3:              u            0.00               0
+#       4:              u            0.00               0
+#
+#The output for this test is as expected. For a graph the that is not connected some
+#verteces are marked as unseen. The correct ones were unseen as we had a start vertex 1.
+#

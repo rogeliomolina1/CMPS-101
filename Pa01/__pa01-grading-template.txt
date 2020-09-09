@@ -1,0 +1,38 @@
+This file is pa01-grading-template.txt in the class locker.
+
+C is 70% and Makefile is 10% and test files+README is 20%
+
+The grade for pa01 will break down grossly as follows.
+
+Prototype agree with intVec.h          [10]    __
+And comments added
+
+Input file(s) read, eof detected       [10]    __
+fgets in C
+
+Edge (2 or 3 fields) from input line   [10]    __
+sscanf in C
+
+Array of adjacency lists built         [10]    __
+      using IntVec ops (should be ADT)
+
+Adjacency list contents correctly      [10]    __
+printed           
+
+Correct organization of functions in   [10]    __
+      header (.h) files. (If any) 
+
+Makefile with correct targets and      [10]    __
+      dependencies
+
+Accurate specifications as comments,   [10]    __ 
+      in header files when appropriate.
+
+Test file(s) to demonstrate all cases  [10]    __ 
+      except input with no edges
+      (no error checking required)
+
+README with appropriate contents,      [10]    __
+      explaining what test files show
+
+                                       GRADE = ___

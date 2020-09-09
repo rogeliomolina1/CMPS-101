@@ -1,0 +1,38 @@
+pa01jan26 automated grade
+
+
+
+
+
+Prototype    9
+
+
+Input        10
+
+
+Edges        10
+
+
+built        10
+
+
+printed      10
+
+
+organization 08
+
+
+Makefile     04
+
+
+pre/post     10
+
+
+Test files   04
+
+
+
+README       10
+
+
+      GRADE  85

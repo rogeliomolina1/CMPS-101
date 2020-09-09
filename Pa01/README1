@@ -1,0 +1,106 @@
+#Rogelio Molina-Marquez
+#rgmolina
+#CMPS 101-Allen Van Gelder
+#
+#I have read and understood the Academic Misconduct Policy for
+#Undergraduates, the related sections 102.01-102.016 and 105.15 of the
+#UC Santa Cruz Student Policies and Regulations Handbook,
+#and the related sections of the class syllabus.
+#
+#Rogelio Molina-Marquez
+#
+#I wrote this assignment using only permitted sources that do not
+#require citation, according to the syllabus
+#
+#Files submitted:
+#digraph01.c
+#intVec.c
+#intVec.h
+#test.c
+#input.txt
+#
+#
+#When run, the digraph01 program creates intVecs of a graph supplied from an 
+#input file in the form:
+#from to wieght
+#and puts data in the intVecs.
+#
+#
+#When the test.c program is run all the functions are tested and
+#the state of everything after each push, pop and search is displayed.
+#
+#This is the output:
+#sz=1
+#top=10
+#capacity=4
+#sz=2
+#top=34
+#capacity=4
+#sz=3
+#top=150
+#capacity=4
+#sz=4
+#top=1
+#capacity=8
+#sz=5
+#top=5
+#capacity=8
+#sz=6
+#top=8
+#capacity=8
+#sz=7
+#top=3
+#capacity=8
+#sz=8
+#top=8
+#capacity=16
+#sz=9
+#top=0
+#capacity=16
+#sz=10
+#top=3
+#capacity=16
+#sz=11
+#top=1
+#capacity=16
+
+
+
+#data at i=10=1
+
+
+#Now starting pop
+
+
+#sz=10
+#top=3
+#capacity=16
+#sz=9
+#top=0
+#capacity=16
+#sz=8
+#top=8
+#capacity=16
+#sz=7
+#top=3
+#capacity=16
+#sz=6
+#top=8
+#capacity=16
+#sz=5
+#top=5
+#capacity=16
+#sz=4
+#top=1
+#sz=3
+#top=150
+#sz=2
+#top=34
+#sz=1
+#top=10
+#sz=0
+#top=0
+#sz=0
+#top=0
+#sz=0
+#top=0
